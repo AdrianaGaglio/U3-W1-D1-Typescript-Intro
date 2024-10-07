@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+}
+
+main {
+  padding: 2rem;
+}
+
+.phoneWrapper {
+  padding: 1rem;
+  width: 300px;
+  height: 450px;
+  margin-inline: auto;
+  background-color: azure;
+  border-radius: 10px;
+  box-shadow: 0px 2px 3px rgb(0 0 0 / 0.2);
+}
+
+form {
+  & > * {
+    margin-bottom: 0.5rem;
+  }
+}
+
+#userInfo,
+#simInfo {
+  & > div {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  input {
+    max-width: 100px;
+  }
+}
