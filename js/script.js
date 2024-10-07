@@ -9,8 +9,15 @@ class User {
     ricarica(totRicarica) {
         this.credito += totRicarica;
     }
-    chiamata(numeroChiamate) {
-        this.credito -= numeroChiamate * 0.2;
+    chiamata(durata) {
+        //inizio extra
+        if (this.credito - durata * 0.2 < 0) {
+            console.log("Impossibile effettuare la chiamata");
+            return;
+        }
+        //fine extra
+        this.credito -= durata * 0.2;
+        this.numeroChiamate += 1;
     }
     chiama404() {
         return this.credito;
@@ -23,12 +30,17 @@ class User {
     }
 }
 const user = new User("Adriana", "Gaglio");
-console.log("stato iniziale => ", user);
+console.log(user);
 user.ricarica(10);
-console.log("ricarica di 10 => ", user);
-user.numeroChiamate = 5;
-console.log("Minuti in chiamata", user.getNumeroChiamata());
-user.chiamata(user.numeroChiamate);
-console.log("Credito dopo chiamata di 5 minuti => ", user.chiama404());
-user.azzeraChiamate();
-console.log("Stato sim aggiornato", user);
+console.log(user);
+user.chiamata(5);
+console.log(user);
+user.chiamata(2);
+user.chiamata(2);
+user.chiamata(2);
+user.chiamata(10);
+user.chiamata(15);
+user.chiamata(7);
+user.chiamata(25);
+console.log(user.chiama404());
+console.log(user.getNumeroChiamata());
